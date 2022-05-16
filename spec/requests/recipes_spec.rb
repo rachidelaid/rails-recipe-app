@@ -12,69 +12,68 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/recipes", type: :request do
-  
+RSpec.describe '/recipes', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Recipe. As you add validations to Recipe, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Recipe.create! valid_attributes
       get recipes_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       recipe = Recipe.create! valid_attributes
       get recipe_url(recipe)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_recipe_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       recipe = Recipe.create! valid_attributes
       get edit_recipe_url(recipe)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Recipe" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Recipe' do
+        expect do
           post recipes_url, params: { recipe: valid_attributes }
-        }.to change(Recipe, :count).by(1)
+        end.to change(Recipe, :count).by(1)
       end
 
-      it "redirects to the created recipe" do
+      it 'redirects to the created recipe' do
         post recipes_url, params: { recipe: valid_attributes }
         expect(response).to redirect_to(recipe_url(Recipe.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Recipe" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Recipe' do
+        expect do
           post recipes_url, params: { recipe: invalid_attributes }
-        }.to change(Recipe, :count).by(0)
+        end.to change(Recipe, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,20 +83,20 @@ RSpec.describe "/recipes", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested recipe" do
+      it 'updates the requested recipe' do
         recipe = Recipe.create! valid_attributes
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the recipe" do
+      it 'redirects to the recipe' do
         recipe = Recipe.create! valid_attributes
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
@@ -105,7 +104,7 @@ RSpec.describe "/recipes", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         recipe = Recipe.create! valid_attributes
         patch recipe_url(recipe), params: { recipe: invalid_attributes }
@@ -114,15 +113,15 @@ RSpec.describe "/recipes", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested recipe" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested recipe' do
       recipe = Recipe.create! valid_attributes
-      expect {
+      expect do
         delete recipe_url(recipe)
-      }.to change(Recipe, :count).by(-1)
+      end.to change(Recipe, :count).by(-1)
     end
 
-    it "redirects to the recipes list" do
+    it 'redirects to the recipes list' do
       recipe = Recipe.create! valid_attributes
       delete recipe_url(recipe)
       expect(response).to redirect_to(recipes_url)

@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
 
+  def shopping_items
+  end
+
   def public
   end
   # GET /recipes or /recipes.json

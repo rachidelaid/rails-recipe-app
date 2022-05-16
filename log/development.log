@@ -450,3 +450,334 @@ Processing by RecipesController#public as HTML
 Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 4017)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:46:45 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 1.0ms | Allocations: 330)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 144)
+  Rendered layout layouts/application.html.erb (Duration: 133.1ms | Allocations: 35577)
+Completed 200 OK in 147ms (Views: 138.8ms | ActiveRecord: 0.0ms | Allocations: 38855)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:48:33 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 1.1ms | Allocations: 144)
+  Rendered shared/_navbar.html.erb (Duration: 13.9ms | Allocations: 11165)
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 14482)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms | Allocations: 15380)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <%= link_to "Recipe App", root_path class:"navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+):
+1:    <nav class="navbar navbar-expand-lg bg-light">
+2:      <div class="container-fluid">
+3:        <%= link_to "Recipe App", root_path class:"navbar-brand"%>
+4:        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+5:          <span class="navbar-toggler-icon"></span>
+6:        </button>
+7:        <div class="collapse navbar-collapse" id="navbarNav">
+8:          <ul class="navbar-nav">
+9:            <li class="nav-item">
+10:              <a class="nav-link active" aria-current="page" href="#">Home</a>
+11:            </li>
+12:            <li class="nav-item">
+13:              <a class="nav-link" href="#">Features</a>
+14:            </li>
+15:            <li class="nav-item">
+16:              <a class="nav-link" href="#">Pricing</a>
+17:            </li>
+18:            <li class="nav-item">
+19:              <a class="nav-link disabled">Disabled</a>
+20:            </li>
+21:          </ul>
+22:        </div>
+23:      </div>
+24:    </nav>
+  
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/shared/_navbar.html.erb:3: syntax error, unexpected label, expecting `do' or '{' or '('
+app/views/layouts/application.html.erb:18
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:48:45 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.8ms | Allocations: 144)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 276)
+  Rendered shared/_flash.html.erb (Duration: 1.3ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 3948)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 4821)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:48:46 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2774)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 3066)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:48:47 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2769)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 3047)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:00 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2787)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 3061)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:06 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.2ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 2762)
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 3034)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:07 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.8ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2762)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 3034)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:08 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 2.9ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 2759)
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 3031)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:09 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2759)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 3031)
+
+
+Started GET "/foods" for 127.0.0.1 at 2022-05-16 15:49:15 +0100
+Processing by FoodsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1595)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 58)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 4238)
+Completed 200 OK in 37ms (Views: 21.4ms | ActiveRecord: 1.3ms | Allocations: 6973)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:49:18 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.2ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2780)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 3071)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:50:09 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 26)
+  Rendered shared/_navbar.html.erb (Duration: 0.9ms | Allocations: 99)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 13910)
+Completed 200 OK in 39ms (Views: 36.9ms | ActiveRecord: 0.0ms | Allocations: 15025)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:50:22 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 26)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 99)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | Allocations: 13809)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 14931)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:52:35 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.5ms | Allocations: 149)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 236)
+  Rendered shared/_flash.html.erb (Duration: 0.8ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 15077)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms | Allocations: 16135)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:52:38 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 61)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2755)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 3042)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:55:01 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 1.2ms | Allocations: 144)
+  Rendered shared/_navbar.html.erb (Duration: 1.2ms | Allocations: 418)
+  Rendered shared/_flash.html.erb (Duration: 0.9ms | Allocations: 220)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4067)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 4913)
+
+
+Started GET "/foods" for 127.0.0.1 at 2022-05-16 15:55:03 +0100
+Processing by FoodsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1450)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 181)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 4216)
+Completed 200 OK in 23ms (Views: 17.8ms | ActiveRecord: 0.4ms | Allocations: 5861)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-05-16 15:55:04 +0100
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.7ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1458)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 167)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 4124)
+Completed 200 OK in 40ms (Views: 31.9ms | ActiveRecord: 1.7ms | Allocations: 5365)
+
+
+Started GET "/public_recipes" for 127.0.0.1 at 2022-05-16 15:55:05 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.3ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 175)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 2875)
+Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.0ms | Allocations: 3151)
+
+
+Started GET "/" for 127.0.0.1 at 2022-05-16 15:55:07 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 175)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2885)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 3157)
+
+
+Started GET "/foods" for 127.0.0.1 at 2022-05-16 15:55:09 +0100
+Processing by FoodsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 974)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 166)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3500)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 3790)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2022-05-16 15:55:10 +0100
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/views/recipes/index.html.erb:6
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 951)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 166)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3482)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 3766)
+
+
+Started GET "/public_recipes" for 127.0.0.1 at 2022-05-16 15:55:10 +0100
+Processing by RecipesController#public as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/public.html.erb within layouts/application
+  Rendered recipes/public.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 175)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2880)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 3152)
+
+

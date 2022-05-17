@@ -2954,3 +2954,40 @@ Processing by FoodsController#new as HTML
 Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 0.3ms | Allocations: 5676)
 
 
+Started GET "/foods/new" for 127.0.0.1 at 2022-05-17 10:11:00 +0100
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.7ms | Allocations: 1527)
+  Rendered foods/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1658)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 176)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 15571)
+Completed 200 OK in 78ms (Views: 39.1ms | ActiveRecord: 8.3ms | Allocations: 26183)
+
+
+Started GET "/general_shopping_list" for 127.0.0.1 at 2022-05-17 10:11:20 +0100
+Processing by ShoppingListController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering shopping_list/index.html.erb within layouts/application
+  Rendered shopping_list/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 152)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 221)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | Allocations: 2999)
+Completed 200 OK in 28ms (Views: 19.8ms | ActiveRecord: 0.8ms | Allocations: 5549)
+
+
+Started GET "/general_shopping_list" for 127.0.0.1 at 2022-05-17 10:11:26 +0100
+Processing by ShoppingListController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering shopping_list/index.html.erb within layouts/application
+  Rendered shopping_list/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 175)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2564)
+Completed 200 OK in 11ms (Views: 5.1ms | ActiveRecord: 0.4ms | Allocations: 4463)
+
+

@@ -3739,3 +3739,125 @@ Processing by FoodsController#new as HTML
 Completed 200 OK in 17ms (Views: 10.3ms | ActiveRecord: 0.7ms | Allocations: 5473)
 
 
+Started POST "/foods" for ::1 at 2022-05-17 14:46:38 +0300
+Processing by FoodsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"apple", "measurement_unit"=>"grams", "price"=>"21.9"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 7.2ms | Allocations: 11447)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass
+
+    @food.user_id = @current_user.id
+                                 ^^^):
+  
+app/controllers/foods_controller.rb:24:in `create'
+Started GET "/foods" for ::1 at 2022-05-17 14:49:01 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1102)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 380)
+  Rendered shared/_flash.html.erb (Duration: 2.3ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 67.3ms | Allocations: 15919)
+Completed 200 OK in 98ms (Views: 70.5ms | ActiveRecord: 8.9ms | Allocations: 23498)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 14:49:01 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 624)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 166)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3156)
+Completed 200 OK in 10ms (Views: 5.7ms | ActiveRecord: 0.6ms | Allocations: 4926)
+
+
+Started GET "/foods/new" for ::1 at 2022-05-17 14:49:04 +0300
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 7.6ms | Allocations: 1527)
+  Rendered foods/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1839)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 4374)
+Completed 200 OK in 47ms (Views: 17.6ms | ActiveRecord: 7.0ms | Allocations: 7796)
+
+
+Started POST "/foods" for ::1 at 2022-05-17 14:49:11 +0300
+Processing by FoodsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"apple", "measurement_unit"=>"grams", "price"=>"27.7"}, "commit"=>"Create Food"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/foods_controller.rb:26:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:26:in `block in create'
+  [1m[36mFood Create (2.6ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "apple"], ["measurement_unit", "grams"], ["price", 27.7], ["user_id", 1], ["created_at", "2022-05-17 11:49:11.988552"], ["updated_at", "2022-05-17 11:49:11.988552"]]
+  ↳ app/controllers/foods_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/foods_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/foods/1
+Completed 302 Found in 49ms (ActiveRecord: 6.5ms | Allocations: 7628)
+
+
+Started GET "/foods/1" for ::1 at 2022-05-17 14:49:12 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/foods/1"):
+  
+Started GET "/foods/new" for ::1 at 2022-05-17 14:49:12 +0300
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.4ms | Allocations: 1082)
+  Rendered foods/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1192)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 3856)
+Completed 200 OK in 21ms (Views: 14.3ms | ActiveRecord: 0.4ms | Allocations: 5665)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 14:49:28 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 2.3ms | Allocations: 291)
+  Rendered foods/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1420)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 4071)
+Completed 200 OK in 39ms (Views: 25.1ms | ActiveRecord: 1.2ms | Allocations: 5729)
+
+
+Started GET "/foods/1" for ::1 at 2022-05-17 14:49:44 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/foods/1"):
+  
+Started GET "/foods" for ::1 at 2022-05-17 14:49:46 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.4ms | Allocations: 30)
+  Rendered foods/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 799)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 3324)
+Completed 200 OK in 34ms (Views: 17.0ms | ActiveRecord: 1.2ms | Allocations: 5129)
+
+

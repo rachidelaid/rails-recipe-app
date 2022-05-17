@@ -11,37 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="d-flex flex-column mb-2">
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.text_field :preparation_time %>
+  <div class="d-flex flex-column mb-2">
+    <%= form.label :preparation_time, class:"form-label" %>
+    <%= form.text_field :preparation_time, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.text_field :cooking_time %>
+  <div class="d-flex flex-column mb-2">
+    <%= form.label :cooking_time, class:"form-label" %>
+    <%= form.text_field :cooking_time, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :decription, style: "display: block" %>
-    <%= form.text_field :decription %>
+  <div class="d-flex flex-column mb-2">
+    <%= form.label :decription, class:"form-label" %>
+    <%= form.text_field :decription, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :public, style: "display: block" %>
+  <div class="d-flex align-items-center mb-2">
     <%= form.check_box :public %>
+    <%= form.label :public, class:"mx-2"%>
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Create", class:"btn btn-primary" %>
   </div>
 <% end %>

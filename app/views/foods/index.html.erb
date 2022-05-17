@@ -5,7 +5,9 @@
 <div id="foods">
   <% @foods.each do |food| %>
     <%= render food %>
-  
+    <p>
+      <%= link_to "Edit this food", edit_food_path(food) %>
+    </p>
   <% end %>
 </div>
 

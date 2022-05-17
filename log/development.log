@@ -3861,3 +3861,299 @@ Processing by FoodsController#index as HTML
 Completed 200 OK in 34ms (Views: 17.0ms | ActiveRecord: 1.2ms | Allocations: 5129)
 
 
+Started GET "/foods/new" for ::1 at 2022-05-17 14:53:00 +0300
+Processing by FoodsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 5.4ms | Allocations: 1553)
+  Rendered foods/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1909)
+  Rendered shared/_navbar.html.erb (Duration: 2.3ms | Allocations: 377)
+  Rendered shared/_flash.html.erb (Duration: 0.5ms | Allocations: 218)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 5380)
+Completed 200 OK in 37ms (Views: 33.5ms | ActiveRecord: 0.2ms | Allocations: 7583)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 15:32:16 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.5ms | Allocations: 249)
+  Rendered foods/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3027)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 178)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 17055)
+Completed 200 OK in 37ms (Views: 17.0ms | ActiveRecord: 4.4ms | Allocations: 26477)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 15:34:17 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.5ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.8ms | Allocations: 240)
+  Rendered foods/index.html.erb within layouts/application (Duration: 42.8ms | Allocations: 1504)
+  Rendered shared/_navbar.html.erb (Duration: 1.3ms | Allocations: 374)
+  Rendered shared/_flash.html.erb (Duration: 1.4ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 4981)
+Completed 200 OK in 81ms (Views: 62.5ms | ActiveRecord: 2.6ms | Allocations: 7321)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 15:34:21 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 3.1ms | Allocations: 235)
+  Rendered foods/index.html.erb within layouts/application (Duration: 18.0ms | Allocations: 2650)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 2744)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.1ms | Allocations: 5054)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"foods"}, missing required keys: [:id]
+Did you mean?  edit_food_url):
+     6:   <% @foods.each do |food| %>
+     7:     <%= render food %>
+     8:     <p>
+     9:       <%= link_to "Edit this food", edit_food_path%>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/foods/index.html.erb:9
+app/views/foods/index.html.erb:6
+Started GET "/foods" for ::1 at 2022-05-17 15:34:48 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered foods/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1936)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 2024)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.0ms | Allocations: 3741)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"foods"}, missing required keys: [:id]
+Did you mean?  edit_food_url):
+     6:   <% @foods.each do |food| %>
+     7:     <%= render food %>
+     8:     <p>
+     9:       <%= link_to "Edit this food", edit_food_path%>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/foods/index.html.erb:9
+app/views/foods/index.html.erb:6
+Started GET "/foods" for ::1 at 2022-05-17 15:35:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.6ms | Allocations: 321)
+  Rendered foods/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 6236)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 6349)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 10.0ms | Allocations: 22570)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"foods"}, missing required keys: [:id]
+Did you mean?  edit_food_url):
+     6:   <% @foods.each do |food| %>
+     7:     <%= render food %>
+     8:     <p>
+     9:       <%= link_to "Edit this food", edit_food_path%>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/foods/index.html.erb:9
+app/views/foods/index.html.erb:6
+Started GET "/foods" for ::1 at 2022-05-17 15:35:14 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.5ms | Allocations: 33)
+  Rendered foods/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1982)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 2071)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 3.1ms | Allocations: 3890)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"foods"}, missing required keys: [:id]
+Did you mean?  edit_food_url):
+     6:   <% @foods.each do |food| %>
+     7:     <%= render food %>
+     8:     <p>
+     9:       <%= link_to "Edit this food", edit_food_path%>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/foods/index.html.erb:9
+app/views/foods/index.html.erb:6
+Started GET "/foods" for ::1 at 2022-05-17 15:35:18 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.8ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 0.4ms | Allocations: 30)
+  Rendered foods/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1937)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 2026)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.3ms | Allocations: 3609)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"foods"}, missing required keys: [:id]
+Did you mean?  edit_food_url):
+     6:   <% @foods.each do |food| %>
+     7:     <%= render food %>
+     8:     <p>
+     9:       <%= link_to "Edit this food", edit_food_path%>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/foods/index.html.erb:9
+app/views/foods/index.html.erb:6
+Started GET "/foods" for ::1 at 2022-05-17 15:36:55 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 1.5ms | Allocations: 235)
+  Rendered foods/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1519)
+  Rendered shared/_navbar.html.erb (Duration: 1.8ms | Allocations: 384)
+  Rendered shared/_flash.html.erb (Duration: 1.1ms | Allocations: 208)
+  Rendered layout layouts/application.html.erb (Duration: 113.0ms | Allocations: 36147)
+Completed 200 OK in 129ms (Views: 116.1ms | ActiveRecord: 0.7ms | Allocations: 38368)
+
+
+Started GET "/foods/1/edit" for ::1 at 2022-05-17 15:36:57 +0300
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (1.1ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:63:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 50.7ms | Allocations: 13100)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 52.6ms | Allocations: 13546)
+  Rendered shared/_navbar.html.erb (Duration: 1.0ms | Allocations: 372)
+  Rendered shared/_flash.html.erb (Duration: 0.5ms | Allocations: 220)
+  Rendered layout layouts/application.html.erb (Duration: 62.0ms | Allocations: 17083)
+Completed 200 OK in 90ms (Views: 66.0ms | ActiveRecord: 1.9ms | Allocations: 20582)
+
+
+Started PATCH "/foods/1" for ::1 at 2022-05-17 15:37:21 +0300
+Processing by FoodsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"orange", "measurement_unit"=>"grams", "price"=>"27.7"}, "commit"=>"Create Food", "id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.7ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:63:in `set_food'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  [1m[36mFood Update (1.5ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "orange"], ["updated_at", "2022-05-17 12:37:21.143214"], ["id", 1]]
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+Redirected to http://localhost:3000/foods/1
+Completed 302 Found in 61ms (ActiveRecord: 7.0ms | Allocations: 9265)
+
+
+Started GET "/foods/1" for ::1 at 2022-05-17 15:37:21 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/foods/1"):
+  
+Started GET "/foods/1/edit" for ::1 at 2022-05-17 15:37:21 +0300
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:63:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.2ms | Allocations: 1176)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1329)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3982)
+Completed 200 OK in 18ms (Views: 10.0ms | ActiveRecord: 0.7ms | Allocations: 6314)
+
+
+Started GET "/foods" for ::1 at 2022-05-17 15:37:38 +0300
+Processing by FoodsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (1.0ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  ↳ app/views/foods/index.html.erb:6
+  Rendered foods/_food.html.erb (Duration: 3.9ms | Allocations: 227)
+  Rendered foods/index.html.erb within layouts/application (Duration: 22.0ms | Allocations: 1294)
+  Rendered shared/_navbar.html.erb (Duration: 4.0ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 3820)
+Completed 200 OK in 54ms (Views: 38.4ms | ActiveRecord: 1.6ms | Allocations: 5526)
+
+
+Started GET "/foods/1/edit" for ::1 at 2022-05-17 15:41:48 +0300
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:63:in `set_food'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 1.4ms | Allocations: 1320)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1497)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 176)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 15506)
+Completed 200 OK in 42ms (Views: 16.7ms | ActiveRecord: 6.5ms | Allocations: 25888)
+
+
+Started PATCH "/foods/1" for ::1 at 2022-05-17 15:41:58 +0300
+Processing by FoodsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "food"=>{"name"=>"orange", "measurement_unit"=>"grams", "price"=>"dsd"}, "commit"=>"Create Food", "id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mFood Load (0.9ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:63:in `set_food'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/foods_controller.rb:39:in `block in update'
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 8.4ms | Allocations: 2139)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2283)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 4825)
+Completed 422 Unprocessable Entity in 65ms (Views: 17.0ms | ActiveRecord: 4.5ms | Allocations: 12170)
+
+

@@ -2,16 +2,11 @@ require 'rails_helper'
 
 
 RSpec.describe '/foods', type: :request do
-  # This should return the minimal set of attributes required to create a valid
-  # Food. As you add validations to Food, be sure to
-  # adjust the attributes here as well.
   let (:test_user){create :user}
   before {sign_in test_user}
   let(:valid_attributes) {{name:'name', measurement_unit:'grams', price:27.99,user: test_user}}
 
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
+  let(:invalid_attributes) {{name:'name', price:27.99,user: test_user}}
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -58,39 +53,38 @@ RSpec.describe '/foods', type: :request do
         end.to change(Food, :count).by(0)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
+      it "has http status of an unprocessable_entity" do
         post foods_url, params: { food: invalid_attributes }
-        expect(response).to be_successful
+        expect(response).to have_http_status(:unprocessable_entity )
       end
     end
   end
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
+      let(:new_attributes) {{name:'new_name', measurement_unit:'grams', price:27.99,user: test_user}}
+      let(:invalid_attributes) {{price: 'cool'}}
 
       it 'updates the requested food' do
         food = Food.create! valid_attributes
         patch food_url(food), params: { food: new_attributes }
         food.reload
-        skip('Add assertions for updated state')
+        expect(food.name).to eq(new_attributes[:name])
       end
 
       it 'redirects to the food' do
         food = Food.create! valid_attributes
         patch food_url(food), params: { food: new_attributes }
         food.reload
-        expect(response).to redirect_to(food_url(food))
+        expect(response).to redirect_to(foods_url)
       end
     end
 
     context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
+      it "has http status of an unprocessable_entity" do
         food = Food.create! valid_attributes
-        patch food_url(food), params: { food: invalid_attributes }
-        expect(response).to be_successful
+        patch food_url(food), params: { food: {price:'price'}}
+        expect(response).not_to redirect_to foods_url
       end
     end
   end

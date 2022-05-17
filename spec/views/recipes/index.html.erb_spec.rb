@@ -4,11 +4,12 @@ RSpec.describe 'recipes/index', type: :system do
   before do
     driven_by(:rack_test)
 
-    user = User.create!(:name => "rachid", :email => 'rachid@example.com', :password => 'f4k3p455w0rd', :password_confirmation => 'f4k3p455w0rd')
+    user = User.create!(name: 'rachid', email: 'rachid@example.com', password: 'f4k3p455w0rd',
+                        password_confirmation: 'f4k3p455w0rd')
     user.confirmed_at = Time.now
     user.save
-    login_as(user, :scope => :user)
-    
+    login_as(user, scope: :user)
+
     @recipe = Recipe.create!(
       name: 'first recipe',
       preparation_time: 'Preparation Time',

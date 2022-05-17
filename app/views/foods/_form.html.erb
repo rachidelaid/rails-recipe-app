@@ -11,27 +11,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name , class:"form-control"%>
   </div>
 
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :measurement_unit, class:"form-label" %>
+    <%= form.text_field :measurement_unit , class:"form-control"%>
   </div>
 
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :price, class:"form-label" %>
+    <%= form.text_field :price, class:"form-control"%>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="actions mb-3">
+    <%= form.submit "Create Food", class:"btn btn-primary" %>
   </div>
 <% end %>

@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_recipe, only: %i[show edit update destroy]
-
-  def shopping_items; end
 
   def public; end
 

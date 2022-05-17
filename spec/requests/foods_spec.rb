@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-
 RSpec.describe '/foods', type: :request do
-  let (:test_user){create :user}
-  before {sign_in test_user}
-  let(:valid_attributes) {{name:'name', measurement_unit:'grams', price:27.99,user: test_user}}
+  let(:test_user) { create :user }
+  before { sign_in test_user }
+  let(:valid_attributes) { { name: 'name', measurement_unit: 'grams', price: 27.99, user: test_user } }
 
-  let(:invalid_attributes) {{name:'name', price:27.99,user: test_user}}
+  let(:invalid_attributes) { { name: 'name', price: 27.99, user: test_user } }
 
   describe 'GET /index' do
     it 'renders a successful response' do
@@ -15,7 +14,6 @@ RSpec.describe '/foods', type: :request do
       expect(response).to be_successful
     end
   end
-
 
   describe 'GET /new' do
     it 'renders a successful response' do
@@ -53,17 +51,17 @@ RSpec.describe '/foods', type: :request do
         end.to change(Food, :count).by(0)
       end
 
-      it "has http status of an unprocessable_entity" do
+      it 'has http status of an unprocessable_entity' do
         post foods_url, params: { food: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity )
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) {{name:'new_name', measurement_unit:'grams', price:27.99,user: test_user}}
-      let(:invalid_attributes) {{price: 'cool'}}
+      let(:new_attributes) { { name: 'new_name', measurement_unit: 'grams', price: 27.99, user: test_user } }
+      let(:invalid_attributes) { { price: 'cool' } }
 
       it 'updates the requested food' do
         food = Food.create! valid_attributes
@@ -81,9 +79,9 @@ RSpec.describe '/foods', type: :request do
     end
 
     context 'with invalid parameters' do
-      it "has http status of an unprocessable_entity" do
+      it 'has http status of an unprocessable_entity' do
         food = Food.create! valid_attributes
-        patch food_url(food), params: { food: {price:'price'}}
+        patch food_url(food), params: { food: { price: 'price' } }
         expect(response).not_to redirect_to foods_url
       end
     end

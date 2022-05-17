@@ -1,34 +1,45 @@
 require 'rails_helper'
 
-RSpec.describe 'recipes/index', type: :view do
-  before(:each) do
-    assign(:recipes, [
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 'Preparation Time',
-               cooking_time: 'Cooking Time',
-               decription: 'Decription',
-               public: false,
-               user: nil
-             ),
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 'Preparation Time',
-               cooking_time: 'Cooking Time',
-               decription: 'Decription',
-               public: false,
-               user: nil
-             )
-           ])
+RSpec.describe 'recipes/index', type: :system do
+  before do
+    driven_by(:rack_test)
+
+    user = User.create!(:name => "rachid", :email => 'rachid@example.com', :password => 'f4k3p455w0rd', :password_confirmation => 'f4k3p455w0rd')
+    user.confirmed_at = Time.now
+    user.save
+    login_as(user, :scope => :user)
+    
+    @recipe = Recipe.create!(
+      name: 'first recipe',
+      preparation_time: 'Preparation Time',
+      cooking_time: 'Cooking Time',
+      decription: 'Decription',
+      public: false,
+      user_id: user.id
+    )
+    Recipe.create!(
+      name: 'second recipe',
+      preparation_time: 'Preparation Time',
+      cooking_time: 'Cooking Time',
+      decription: 'Decription',
+      public: false,
+      user_id: user.id
+    )
+
+    visit recipes_path
   end
 
-  it 'renders a list of recipes' do
-    render
-    assert_select 'tr>td', text: 'Name'.to_s, count: 2
-    assert_select 'tr>td', text: 'Preparation Time'.to_s, count: 2
-    assert_select 'tr>td', text: 'Cooking Time'.to_s, count: 2
-    assert_select 'tr>td', text: 'Decription'.to_s, count: 2
-    assert_select 'tr>td', text: false.to_s, count: 2
-    assert_select 'tr>td', text: nil.to_s, count: 2
+  it 'should list 2 recipes' do
+    expect(page).to have_content('first recipe')
+    expect(page).to have_content('second recipe')
+  end
+
+  it 'should show add new recipe link' do
+    expect(page).to have_content('New recipe')
+  end
+
+  it 'Should lead to recipe details.' do
+    click_link('first recipe')
+    expect(current_path).to eql(recipe_path(@recipe.id))
   end
 end

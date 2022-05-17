@@ -15677,3 +15677,177 @@ Processing by FoodsController#destroy as HTML
 Redirected to http://www.example.com/foods
 Completed 302 Found in 3ms (ActiveRecord: 0.8ms | Allocations: 564)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rachid@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "rachid"], ["email", "rachid@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2022-05-17 15:34:13.214496"], ["unconfirmed_email", nil], ["created_at", "2022-05-17 15:34:13.214327"], ["updated_at", "2022-05-17 15:34:13.214327"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 4.0ms | Allocations: 1135)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 72.2ms
+Delivered mail 6283c07564e47_ee1015b894489@pop-os.mail (6.5ms)
+Date: Tue, 17 May 2022 16:34:13 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: rachid@example.com
+Message-ID: <6283c07564e47_ee1015b894489@pop-os.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome rachid@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=G4JtLp-76xo-8jRJRTDJ">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2022-05-17 15:34:13.417348"], ["updated_at", "2022-05-17 15:34:13.417930"], ["id", 44]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.9ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "first recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 44], ["created_at", "2022-05-17 15:34:13.449393"], ["updated_at", "2022-05-17 15:34:13.449393"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "second recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 44], ["created_at", "2022-05-17 15:34:13.453452"], ["updated_at", "2022-05-17 15:34:13.453452"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/recipes" for 127.0.0.1 at 2022-05-17 16:34:13 +0100
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 44]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 2.4ms | Allocations: 704)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 0.5ms | Allocations: 145)
+  Rendered recipes/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2053)
+  Rendered shared/_navbar.html.erb (Duration: 0.8ms | Allocations: 372)
+  Rendered shared/_flash.html.erb (Duration: 0.4ms | Allocations: 193)
+  Rendered layout layouts/application.html.erb (Duration: 262.5ms | Allocations: 89793)
+Completed 200 OK in 270ms (Views: 263.2ms | ActiveRecord: 0.8ms | Allocations: 92144)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rachid@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "rachid"], ["email", "rachid@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2022-05-17 15:34:13.767766"], ["unconfirmed_email", nil], ["created_at", "2022-05-17 15:34:13.767674"], ["updated_at", "2022-05-17 15:34:13.767674"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.3ms | Allocations: 116)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Delivered mail 6283c075bc8bf_ee1015b8945b3@pop-os.mail (2.0ms)
+Date: Tue, 17 May 2022 16:34:13 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: rachid@example.com
+Message-ID: <6283c075bc8bf_ee1015b8945b3@pop-os.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome rachid@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=i6Vxuys-RpywvYyEJMSP">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2022-05-17 15:34:13.773681"], ["updated_at", "2022-05-17 15:34:13.774247"], ["id", 45]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "first recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 45], ["created_at", "2022-05-17 15:34:13.778689"], ["updated_at", "2022-05-17 15:34:13.778689"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "second recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 45], ["created_at", "2022-05-17 15:34:13.781618"], ["updated_at", "2022-05-17 15:34:13.781618"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/recipes" for 127.0.0.1 at 2022-05-17 16:34:13 +0100
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 45]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 0.9ms | Allocations: 206)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 0.4ms | Allocations: 136)
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 658)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2362)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 2678)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rachid@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "rachid"], ["email", "rachid@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", nil], ["confirmation_sent_at", "2022-05-17 15:34:13.800290"], ["unconfirmed_email", nil], ["created_at", "2022-05-17 15:34:13.800208"], ["updated_at", "2022-05-17 15:34:13.800208"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering devise/mailer/confirmation_instructions.html.erb
+  Rendered devise/mailer/confirmation_instructions.html.erb (Duration: 0.3ms | Allocations: 116)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1.5ms
+Delivered mail 6283c075c46d5_ee1015b8946f5@pop-os.mail (1.6ms)
+Date: Tue, 17 May 2022 16:34:13 +0100
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: rachid@example.com
+Message-ID: <6283c075c46d5_ee1015b8946f5@pop-os.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome rachid@example.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=if44zQDCqoxBzzjmVwsL">Confirm my account</a></p>
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["confirmed_at", "2022-05-17 15:34:13.805681"], ["updated_at", "2022-05-17 15:34:13.806237"], ["id", 46]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "first recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 46], ["created_at", "2022-05-17 15:34:13.810369"], ["updated_at", "2022-05-17 15:34:13.810369"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "preparation_time", "cooking_time", "decription", "public", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "second recipe"], ["preparation_time", "Preparation Time"], ["cooking_time", "Cooking Time"], ["decription", "Decription"], ["public", false], ["user_id", 46], ["created_at", "2022-05-17 15:34:13.813282"], ["updated_at", "2022-05-17 15:34:13.813282"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/recipes" for 127.0.0.1 at 2022-05-17 16:34:13 +0100
+Processing by RecipesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = $1[0m  [["user_id", 46]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 0.9ms | Allocations: 206)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 0.7ms | Allocations: 136)
+  Rendered recipes/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 658)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2358)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 2674)
+Started GET "/recipes/49" for 127.0.0.1 at 2022-05-17 16:34:13 +0100
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  Rendered recipes/_recipe.html.erb (Duration: 1.2ms | Allocations: 191)
+  Rendered recipes/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 660)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 11)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2292)
+Completed 200 OK in 10ms (Views: 4.7ms | ActiveRecord: 0.9ms | Allocations: 3461)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m

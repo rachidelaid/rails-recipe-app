@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+
 
 <h1>Foods</h1>
 <div class="d-flex flex-row justify-content-end">
@@ -22,7 +22,8 @@
       <td><%=food.name%></td>
       <td><%=food.measurement_unit%></td>
       <td><%=food.price%></td>
-      <td><%=link_to "Delete food", "/food/#{food.id}", method:"delete" %></td>
+      <td><%=button_to "Delete food", "/foods/#{food.id}", 
+      :method=>:delete,:class=>'btn btn-danger',:data=>{turbo:false} %></td>
     </tr>
     <% end %>
   </tbody>

@@ -15196,3 +15196,484 @@ Processing by FoodsController#destroy as HTML
 Redirected to http://www.example.com/foods
 Completed 302 Found in 3ms (ActiveRecord: 0.7ms | Allocations: 564)
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test1@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.299318"], ["updated_at", "2022-05-17 13:42:15.299318"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (1.4ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 811], ["created_at", "2022-05-17 13:42:15.310118"], ["updated_at", "2022-05-17 13:42:15.310118"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1225)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 377)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 52.3ms | Allocations: 35008)
+Completed 200 OK in 59ms (Views: 53.7ms | ActiveRecord: 0.3ms | Allocations: 39118)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test2@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.407454"], ["updated_at", "2022-05-17 13:42:15.407454"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods/new" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 3.9ms | Allocations: 3047)
+  Rendered foods/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3358)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5092)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 5500)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test3@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.425458"], ["updated_at", "2022-05-17 13:42:15.425458"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 813], ["created_at", "2022-05-17 13:42:15.427389"], ["updated_at", "2022-05-17 13:42:15.427389"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods/532/edit" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"532"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 532], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.9ms | Allocations: 1080)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1380)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3084)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 3843)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test4@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.449390"], ["updated_at", "2022-05-17 13:42:15.449390"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda351ba938>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007fda35147140>, params: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda351ba938>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 814], ["LIMIT", 1]]
+  [1m[36mFood Create (0.4ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 814], ["created_at", "2022-05-17 13:42:15.463229"], ["updated_at", "2022-05-17 13:42:15.463229"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms | Allocations: 2134)
+  [1m[36mFood Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test5@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.471163"], ["updated_at", "2022-05-17 13:42:15.471163"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda33600828>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007fda335d8dc8>, params: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda33600828>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 815], ["LIMIT", 1]]
+  [1m[36mFood Create (0.5ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 815], ["created_at", "2022-05-17 13:42:15.477531"], ["updated_at", "2022-05-17 13:42:15.477531"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 1066)
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" ORDER BY "foods"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test6@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.491282"], ["updated_at", "2022-05-17 13:42:15.491282"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007fda3359f910>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007fda33577640>, params: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007fda3359f910>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 816], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 3.4ms | Allocations: 2076)
+  Rendered foods/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2147)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3851)
+Completed 422 Unprocessable Entity in 9ms (Views: 5.9ms | ActiveRecord: 0.5ms | Allocations: 4939)
+  [1m[36mFood Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test7@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.512651"], ["updated_at", "2022-05-17 13:42:15.512651"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007fda33508358>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007fda334ebed8>, params: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007fda33508358>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 817], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.4ms | Allocations: 1977)
+  Rendered foods/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 2048)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3752)
+Completed 422 Unprocessable Entity in 7ms (Views: 5.0ms | ActiveRecord: 0.4ms | Allocations: 4793)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test8@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.529094"], ["updated_at", "2022-05-17 13:42:15.529094"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 818], ["created_at", "2022-05-17 13:42:15.531113"], ["updated_at", "2022-05-17 13:42:15.531113"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/535" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda3348ddb0>"}, "id"=>"535"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 535], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: update, request: #<ActionDispatch::Request:0x00007fda33455460>, params: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda3348ddb0>"}, "controller"=>"foods", "action"=>"update", "id"=>"535"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 818], ["LIMIT", 1]]
+  [1m[36mFood Update (0.4ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "new_name"], ["updated_at", "2022-05-17 13:42:15.537046"], ["id", 535]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms | Allocations: 1260)
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 535], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test9@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.546436"], ["updated_at", "2022-05-17 13:42:15.546436"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 819], ["created_at", "2022-05-17 13:42:15.549866"], ["updated_at", "2022-05-17 13:42:15.549866"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/536" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda334488c8>"}, "id"=>"536"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 536], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: update, request: #<ActionDispatch::Request:0x00007fda33428118>, params: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007fda334488c8>"}, "controller"=>"foods", "action"=>"update", "id"=>"536"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 819], ["LIMIT", 1]]
+  [1m[36mFood Update (0.4ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "new_name"], ["updated_at", "2022-05-17 13:42:15.558274"], ["id", 536]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms | Allocations: 1123)
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 536], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test10@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test10@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.567828"], ["updated_at", "2022-05-17 13:42:15.567828"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 820], ["created_at", "2022-05-17 13:42:15.570470"], ["updated_at", "2022-05-17 13:42:15.570470"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/537" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"price"=>"price"}, "id"=>"537"}
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 537], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 820], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.7ms | Allocations: 2079)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2193)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 3897)
+Completed 422 Unprocessable Entity in 10ms (Views: 5.6ms | ActiveRecord: 1.0ms | Allocations: 4985)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test11@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test11@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.591083"], ["updated_at", "2022-05-17 13:42:15.591083"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.4ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 821], ["created_at", "2022-05-17 13:42:15.594305"], ["updated_at", "2022-05-17 13:42:15.594305"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started DELETE "/foods/538" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#destroy as HTML
+  Parameters: {"id"=>"538"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 538], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Destroy (2.2ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 538]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 4ms (ActiveRecord: 2.6ms | Allocations: 620)
+  [1m[36mFood Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test12@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test12@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:42:15.608827"], ["updated_at", "2022-05-17 13:42:15.608827"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 822], ["created_at", "2022-05-17 13:42:15.611402"], ["updated_at", "2022-05-17 13:42:15.611402"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/foods/539" for 127.0.0.1 at 2022-05-17 16:42:15 +0300
+Processing by FoodsController#destroy as HTML
+  Parameters: {"id"=>"539"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 539], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Destroy (0.6ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 539]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms | Allocations: 564)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test1@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test1@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.103386"], ["updated_at", "2022-05-17 13:44:02.103386"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.7ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 823], ["created_at", "2022-05-17 13:44:02.120850"], ["updated_at", "2022-05-17 13:44:02.120850"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/index.html.erb within layouts/application
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods"[0m
+  Rendered foods/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1225)
+  Rendered shared/_navbar.html.erb (Duration: 1.1ms | Allocations: 377)
+  Rendered shared/_flash.html.erb (Duration: 0.6ms | Allocations: 223)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | Allocations: 34618)
+Completed 200 OK in 93ms (Views: 84.0ms | ActiveRecord: 0.6ms | Allocations: 38728)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test2@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test2@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.272806"], ["updated_at", "2022-05-17 13:44:02.272806"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods/new" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 11.2ms | Allocations: 3047)
+  Rendered foods/new.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3358)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 28)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 5092)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 5500)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test3@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test3@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.303203"], ["updated_at", "2022-05-17 13:44:02.303203"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.5ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 825], ["created_at", "2022-05-17 13:44:02.305059"], ["updated_at", "2022-05-17 13:44:02.305059"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/foods/541/edit" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"541"}
+  [1m[36mFood Load (0.6ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 541], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.0ms | Allocations: 1080)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1380)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3084)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.9ms | Allocations: 3843)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test4@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test4@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.324262"], ["updated_at", "2022-05-17 13:44:02.324262"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f702955ffc8>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007f7029500938>, params: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f702955ffc8>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 826], ["LIMIT", 1]]
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 826], ["created_at", "2022-05-17 13:44:02.336598"], ["updated_at", "2022-05-17 13:44:02.336598"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms | Allocations: 2134)
+  [1m[36mFood Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test5@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test5@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.345678"], ["updated_at", "2022-05-17 13:44:02.345678"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f70239b6e38>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007f702398f900>, params: {"food"=>{"name"=>"name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f70239b6e38>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 827], ["LIMIT", 1]]
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 827], ["created_at", "2022-05-17 13:44:02.351738"], ["updated_at", "2022-05-17 13:44:02.351738"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms | Allocations: 1066)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test6@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test6@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.359468"], ["updated_at", "2022-05-17 13:44:02.359468"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007f7023970c30>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007f70239533d8>, params: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007f7023970c30>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 828], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.6ms | Allocations: 2076)
+  Rendered foods/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 2147)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3851)
+Completed 422 Unprocessable Entity in 9ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 4939)
+  [1m[36mFood Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test7@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test7@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.380916"], ["updated_at", "2022-05-17 13:44:02.380916"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/foods" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#create as HTML
+  Parameters: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007f70238e3678>"}}
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: create, request: #<ActionDispatch::Request:0x00007f70238b16a0>, params: {"food"=>{"name"=>"name", "price"=>"27.99", "user"=>"#<User:0x00007f70238e3678>"}, "controller"=>"foods", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 829], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/new.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 3.2ms | Allocations: 1977)
+  Rendered foods/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 2048)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3752)
+Completed 422 Unprocessable Entity in 9ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 4793)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test8@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test8@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.400230"], ["updated_at", "2022-05-17 13:44:02.400230"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 830], ["created_at", "2022-05-17 13:44:02.401928"], ["updated_at", "2022-05-17 13:44:02.401928"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/544" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f702385f378>"}, "id"=>"544"}
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 544], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: update, request: #<ActionDispatch::Request:0x00007f702382d1c0>, params: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f702385f378>"}, "controller"=>"foods", "action"=>"update", "id"=>"544"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 830], ["LIMIT", 1]]
+  [1m[36mFood Update (0.4ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "new_name"], ["updated_at", "2022-05-17 13:44:02.407612"], ["id", 544]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms | Allocations: 1260)
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 544], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test9@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test9@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.417209"], ["updated_at", "2022-05-17 13:44:02.417209"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 831], ["created_at", "2022-05-17 13:44:02.419680"], ["updated_at", "2022-05-17 13:44:02.419680"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/545" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f7023822fe0>"}, "id"=>"545"}
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 545], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user. Context: { controller: FoodsController, action: update, request: #<ActionDispatch::Request:0x00007f7023802150>, params: {"food"=>{"name"=>"new_name", "measurement_unit"=>"grams", "price"=>"27.99", "user"=>"#<User:0x00007f7023822fe0>"}, "controller"=>"foods", "action"=>"update", "id"=>"545"} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 831], ["LIMIT", 1]]
+  [1m[36mFood Update (0.5ms)[0m  [1m[33mUPDATE "foods" SET "name" = $1, "updated_at" = $2 WHERE "foods"."id" = $3[0m  [["name", "new_name"], ["updated_at", "2022-05-17 13:44:02.427606"], ["id", 545]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms | Allocations: 1123)
+  [1m[36mFood Load (0.4ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 545], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test10@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test10@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.437200"], ["updated_at", "2022-05-17 13:44:02.437200"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 832], ["created_at", "2022-05-17 13:44:02.439471"], ["updated_at", "2022-05-17 13:44:02.439471"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PATCH "/foods/546" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#update as HTML
+  Parameters: {"food"=>{"price"=>"price"}, "id"=>"546"}
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 546], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 832], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering foods/edit.html.erb within layouts/application
+  Rendered foods/_form.html.erb (Duration: 2.8ms | Allocations: 2079)
+  Rendered foods/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2193)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 155)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3897)
+Completed 422 Unprocessable Entity in 9ms (Views: 5.1ms | ActiveRecord: 0.7ms | Allocations: 4985)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test11@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test11@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.458485"], ["updated_at", "2022-05-17 13:44:02.458485"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.5ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 833], ["created_at", "2022-05-17 13:44:02.460739"], ["updated_at", "2022-05-17 13:44:02.460739"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mFood Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+Started DELETE "/foods/547" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#destroy as HTML
+  Parameters: {"id"=>"547"}
+  [1m[36mFood Load (0.2ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 547], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Destroy (0.7ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 547]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 4ms (ActiveRecord: 1.2ms | Allocations: 620)
+  [1m[36mFood Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "foods"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test12@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "MyString"], ["email", "test12@example.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["confirmation_token", "[FILTERED]"], ["confirmed_at", "0001-01-01 00:00:00"], ["confirmation_sent_at", nil], ["unconfirmed_email", nil], ["created_at", "2022-05-17 13:44:02.476040"], ["updated_at", "2022-05-17 13:44:02.476040"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Create (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("name", "measurement_unit", "price", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "name"], ["measurement_unit", "grams"], ["price", 27.99], ["user_id", 834], ["created_at", "2022-05-17 13:44:02.478884"], ["updated_at", "2022-05-17 13:44:02.478884"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/foods/548" for 127.0.0.1 at 2022-05-17 16:44:02 +0300
+Processing by FoodsController#destroy as HTML
+  Parameters: {"id"=>"548"}
+  [1m[36mFood Load (0.3ms)[0m  [1m[34mSELECT "foods".* FROM "foods" WHERE "foods"."id" = $1 LIMIT $2[0m  [["id", 548], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mFood Destroy (0.4ms)[0m  [1m[31mDELETE FROM "foods" WHERE "foods"."id" = $1[0m  [["id", 548]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/foods
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms | Allocations: 564)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m

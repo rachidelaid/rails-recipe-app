@@ -40,9 +40,9 @@ RSpec.describe '/foods', type: :request do
         end.to change(Food, :count).by(1)
       end
 
-      it 'redirects to the created food' do
+      it 'redirects to the foods list page' do
         post foods_url, params: { food: valid_attributes }
-        expect(response).to redirect_to(food_url(Food.last))
+        expect(response).to redirect_to(foods_url)
       end
     end
 

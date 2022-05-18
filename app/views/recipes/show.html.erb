@@ -1,10 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<div class="card mb-2">
+  <div class="card-body d-flex">
+    <div class="title w-100">
+      <h4><%= @recipe.name %></h4>
+      <div class="d-flex justify-content-between">
+        <p>Preparation time: <%= @recipe.preparation_time %></p>
+        <p>public: <%= @recipe.public %></p>
+      </div>
+      <p>cooking time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.decription %></p>
+    </div>
+    <div class="details"></div>
+  </div>
+</div>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+<div class="d-flex justify-content-between">
+  <%= link_to "Generate shopping list", general_shopping_list_path, class: "btn btn-info" %>
+  <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal">Add ingredient</button>
 </div>

@@ -4,8 +4,8 @@ RSpec.describe '/recipes', type: :request do
   let(:test_user) { create :user }
   before { sign_in test_user }
 
-  let(:valid_attributes) { (build( :recipe, user: test_user)).attributes }
-  let(:invalid_attributes) { (build( :recipe, preparation_time: nil)).attributes }
+  let(:valid_attributes) { build(:recipe, user: test_user).attributes }
+  let(:invalid_attributes) { build(:recipe, preparation_time: nil).attributes }
 
   describe 'GET /public' do
     before(:each) do
@@ -81,13 +81,13 @@ RSpec.describe '/recipes', type: :request do
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
-      let(:new_attributes) {(build( :recipe, preparation_time: "2 hours")).attributes}
+      let(:new_attributes) { build(:recipe, preparation_time: '2 hours').attributes }
 
       it 'updates the requested recipe' do
         recipe = Recipe.create! valid_attributes
         patch recipe_url(recipe), params: { recipe: new_attributes }
         recipe.reload
-        expect(recipe.preparation_time).to eq("2 hours")
+        expect(recipe.preparation_time).to eq('2 hours')
       end
 
       it 'redirects to the recipe' do

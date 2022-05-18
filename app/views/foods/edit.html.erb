@@ -1,10 +1,12 @@
-<h1>Editing food</h1>
+<div class="container w-50">
+  <h1>Editing food</h1>
 
-<%= render "form", food: @food %>
+  <%= render "form", food: @food %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this food", @food %> |
-  <%= link_to "Back to foods", foods_path %>
+  <div>
+    <%= link_to "Show this food", @food %> |
+    <%= link_to "Back to foods", foods_path %>
+  </div>
 </div>

@@ -76,3 +76,5 @@ end
 
 gem 'cancancan'
 gem 'devise'
+
+gem 'rubocop', '~> 1.29'

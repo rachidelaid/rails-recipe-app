@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="card mb-2">
+<div class="card">
   <div class="card-body d-flex">
     <div class="title w-100">
       <h4><%= @recipe.name %></h4>
@@ -44,9 +44,36 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between my-4">
   <%= link_to "Generate shopping list", general_shopping_list_path, class: "btn btn-info" %>
   <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" onclick="(() => {
     document.getElementById('popup').classList.toggle('d-none')
   })()">Add ingredient</button>
+</div>
+
+<div class="card">
+  <div class="card-body d-flex">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Value</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% RecipeFood.where(recipe_id: @recipe.id).each do |ingredient| %>
+          <tr>
+            <td><%= Food.find_by(id: ingredient.food_id).name %></td>
+            <td><%= "#{ingredient.quantity} #{Food.find_by(id: ingredient.food_id).measurement_unit}"%></td>
+            <td><%= Food.find_by(id: ingredient.food_id).price * ingredient.quantity%></td>
+            <td>
+              <%= link_to "Delete", recipe_foods_path(@recipe), data:{method: :delete}, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

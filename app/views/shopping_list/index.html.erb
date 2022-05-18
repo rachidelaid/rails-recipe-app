@@ -1,1 +1,28 @@
-<h1>The shopping list</h1>
+<div class="container w-75 text-center">
+  <h1>The shopping list</h1>
+  <div class="d-flex w-100 justify-content-between">
+    <p>Amount of food items to buy: <%=@amount%> </p>
+    <p>Total value of food items needed: <%=@value%></p>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+     
+        <th class="col">Food</th>
+        <th class="col">Quatity</th>
+        <th class="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <%@items.each do |item|%>  
+      <tr>
+     
+        <td><%=item[:name]%></td>
+        <td><%=item[:quantity]%></td>
+        <td><%=item[:price]%></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>

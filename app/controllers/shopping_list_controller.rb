@@ -1,17 +1,17 @@
 class ShoppingListController < ApplicationController
   before_action :authenticate_user!
   def index
-    available_food = Food.where(user: current_user)
-    total_recipe_food = RecipeFood.includes(food: :user).where(food: {user: current_user})
-    #author_of_the_recipe
-    missing_foods = total_recipe_food.where.not(food: available_food)
-    @amount = missing_food.count
-    @value = 1000
-    @items = [
-      {price:40,name:'apples',quantity:5},
-      {price:40,name:'apples',quantity:5},
-      {price:40,name:'apples',quantity:5},
-      {price:40,name:'apples',quantity:5}
-    ]
+    
+    available_food = Food.where(user: current_user).map{|food| food.name}
+    total_recipe_food = RecipeFood.includes(:food).where(recipe_id: params[:recipe_id])
+    missing_recipe_food = total_recipe_food.where.not(food: {name: available_food})
+    @amount = missing_recipe_food.count
+    @value = 0
+    @items = []
+    missing_recipe_food.each do |recipe_food|
+      item_price = recipe_food.food.price * recipe_food.quantity
+      @items << {price: item_price, quantity: recipe_food.quantity, name:  recipe_food.food.name }
+      @value += item_price
+    end
   end
 end

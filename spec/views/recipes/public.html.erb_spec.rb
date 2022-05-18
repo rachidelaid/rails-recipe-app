@@ -9,7 +9,6 @@ RSpec.describe 'recipes/index', type: :system do
     user.confirmed_at = Time.now
     user.save
     login_as(user, scope: :user)
-    p user
 
     @recipe = Recipe.create(
       name: 'first recipe',

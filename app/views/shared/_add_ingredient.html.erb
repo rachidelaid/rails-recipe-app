@@ -1,0 +1,28 @@
+<div class="d-flex w-100 h-100 d-none fixed-top justify-content-center align-items-center popup" id="popupAdd">
+  <div class="card text-center w-50">
+    <div class="card-header">
+      Add Ingredient
+    </div>
+    <%= form_with url: recipe_foods_path(@recipe.id) do |form|%>
+      <div class="card-body">
+        <div class="d-flex flex-column mb-2">
+          <%= form.label "Food", class:"form-label" %>
+          <%= form.collection_select :food_id, Food.order(:name),:id,:name, include_blank: true, class:"form-control", :required => true %>
+        </div>
+
+        <div class="d-flex flex-column">
+          <%= form.label :quantity, class:"form-label" %>
+          <%= form.number_field :quantity, class:"form-control" %>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-secondary" onclick="(() => {
+            document.getElementById('popupAdd').classList.toggle('d-none')
+            })()">Cancle</button>
+          <button class="btn btn-primary mx-2" type="submit">Add</button>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

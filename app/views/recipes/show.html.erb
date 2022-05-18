@@ -1,10 +1,61 @@
+<%= render partial: "shared/add_ingredient" %>
+
+<% if RecipeFood.find_by(id: params[:ingredient_id])%>
+  <%= render partial: "shared/edit_ingredient" %>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @recipe %>
+<div class="card">
+  <div class="card-body d-flex">
+    <div class="title w-100">
+      <h4><%= @recipe.name %></h4>
+      <div class="d-flex justify-content-between">
+        <p>Preparation time: <%= @recipe.preparation_time %></p>
+        <p>public: <%= @recipe.public %></p>
+      </div>
+      <p>cooking time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.decription %></p>
+    </div>
+    <div class="details"></div>
+  </div>
+</div>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="d-flex justify-content-between my-4">
+  <%= link_to "Generate shopping list", general_shopping_list_path, class: "btn btn-info" %>
+  <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" onclick="(() => {
+    document.getElementById('popupAdd').classList.toggle('d-none')
+  })()">Add ingredient</button>
+</div>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+<div class="card">
+  <div class="card-body d-flex">
+    <% if RecipeFood.where(recipe_id: @recipe.id).empty?%>
+      <p class="text-center w-100 m-0">no ingredients</p>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% RecipeFood.where(recipe_id: @recipe.id).each do |ingredient| %>
+            <tr>
+              <td><%= Food.find_by(id: ingredient.food_id).name %></td>
+              <td><%= "#{ingredient.quantity} #{Food.find_by(id: ingredient.food_id).measurement_unit}"%></td>
+              <td><%= Food.find_by(id: ingredient.food_id).price * ingredient.quantity%></td>
+              <td>
+                <%= link_to "Modify", recipe_path({ingredient_id: ingredient.id, id: @recipe.id}), class: "btn btn-secondary" %>
+                <%= link_to "Delete", recipe_food_path({id: ingredient.id, recipe_id: @recipe.id}), data:{"turbo-method": :delete}, class: "btn btn-danger" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%end%>
+  </div>
 </div>

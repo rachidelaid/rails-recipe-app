@@ -17,5 +17,14 @@
         </li>
       </ul>
     </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <% if user_signed_in? %>
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link text-white btn btn-danger" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class:"nav-link text-white btn btn-primary" %>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </nav>

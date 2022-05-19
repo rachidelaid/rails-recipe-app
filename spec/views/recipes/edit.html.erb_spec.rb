@@ -1,32 +1,45 @@
 require 'rails_helper'
 
-RSpec.describe 'recipes/edit', type: :view do
-  before(:each) do
-    @recipe = assign(:recipe, Recipe.create!(
-                                name: 'MyString',
-                                preparation_time: 'MyString',
-                                cooking_time: 'MyString',
-                                decription: 'MyString',
-                                public: false,
-                                user: nil
-                              ))
+RSpec.describe 'recipes/edit', type: :system do
+  before do
+    driven_by(:rack_test)
+
+    user = User.create!(name: 'rachid', email: 'rachid@example.com', password: 'f4k3p455w0rd',
+                        password_confirmation: 'f4k3p455w0rd')
+    user.confirmed_at = Time.now
+    user.save
+    login_as(user, scope: :user)
+
+    @recipe = Recipe.create(
+      name: 'first recipe',
+      preparation_time: 'Preparation Time',
+      cooking_time: 'Cooking Time',
+      decription: 'Decription',
+      public: true,
+      user_id: user.id
+    )
+
+    visit edit_recipe_path(@recipe.id)
   end
 
-  it 'renders the edit recipe form' do
-    render
+  it 'should show the page title' do
+    expect(page).to have_content('Editing recipe')
+  end
 
-    assert_select 'form[action=?][method=?]', recipe_path(@recipe), 'post' do
-      assert_select 'input[name=?]', 'recipe[name]'
+  it 'should show the preparation time input' do
+    expect(page).to have_css('#recipe_preparation_time')
+  end
 
-      assert_select 'input[name=?]', 'recipe[preparation_time]'
+  it 'should show the description input' do
+    expect(page).to have_css('#recipe_decription')
+  end
 
-      assert_select 'input[name=?]', 'recipe[cooking_time]'
-
-      assert_select 'input[name=?]', 'recipe[decription]'
-
-      assert_select 'input[name=?]', 'recipe[public]'
-
-      assert_select 'input[name=?]', 'recipe[user_id]'
+  it 'Should change the name' do
+    within('#edit form') do
+      fill_in 'Name', with: 'name changed'
     end
+    click_button 'Create'
+    @recipe.reload
+    expect(@recipe.name).to eql('name changed')
   end
 end

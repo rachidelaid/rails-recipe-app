@@ -1,32 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe 'recipes/new', type: :view do
-  before(:each) do
-    assign(:recipe, Recipe.new(
-                      name: 'MyString',
-                      preparation_time: 'MyString',
-                      cooking_time: 'MyString',
-                      decription: 'MyString',
-                      public: false,
-                      user: nil
-                    ))
+RSpec.describe 'recipes/new', type: :system do
+  before do
+    driven_by(:rack_test)
+
+    user = User.create!(name: 'rachid', email: 'rachid@example.com', password: 'f4k3p455w0rd',
+                        password_confirmation: 'f4k3p455w0rd')
+    user.confirmed_at = Time.now
+    user.save
+    login_as(user, scope: :user)
+
+    visit new_recipe_path
   end
 
-  it 'renders new recipe form' do
-    render
+  it 'should show the page title' do
+    expect(page).to have_content('New recipe')
+  end
 
-    assert_select 'form[action=?][method=?]', recipes_path, 'post' do
-      assert_select 'input[name=?]', 'recipe[name]'
+  it 'should show the preparation time input' do
+    expect(page).to have_css('#recipe_preparation_time')
+  end
 
-      assert_select 'input[name=?]', 'recipe[preparation_time]'
-
-      assert_select 'input[name=?]', 'recipe[cooking_time]'
-
-      assert_select 'input[name=?]', 'recipe[decription]'
-
-      assert_select 'input[name=?]', 'recipe[public]'
-
-      assert_select 'input[name=?]', 'recipe[user_id]'
-    end
+  it 'should show the description input' do
+    expect(page).to have_css('#recipe_decription')
   end
 end

@@ -6,5 +6,4 @@ RSpec.describe Recipe, type: :model do
   it { should validate_presence_of :decription }
   it { should validate_presence_of :preparation_time }
   it { should validate_presence_of :cooking_time }
-  it { should validate_presence_of :public }
 end

@@ -1,9 +1,21 @@
 <div class="card mb-2">
-  <div class="card-body d-flex">
-    <div class="title">
+  <div class="card-body row">
+    <div class="title col-4">
       <h4><%= link_to recipe.name, recipe, class:"card-link text-decoration-none"%></h4>
-      <h6>By: <%= User.find_by(id: recipe.user_id).name %></h6>
+      <% if can? :manage, recipe %>
+        <%= button_to "remove", recipe_path(recipe.id), method: :delete, class:"btn btn-outline-danger px-1 py-0 mx-1" %>
+      <% else %>
+        <h6>By: <%= User.find_by(id: recipe.user_id).name %></h6>
+      <% end %>
     </div>
-    <div class="details"></div>
+    <div class="details col">
+      <% if recipe.public == false%>
+        <p><%= recipe.decription %></p>
+      <% else %>
+        <p><b>Total foods items:</b> <%= RecipeFood.where(recipe_id: recipe.id).count %></p>
+        <% price = RecipeFood.where(recipe_id: recipe.id).reduce(0) { |sum, f| sum + (f.quantity*Food.find(f.food_id).price).to_f } %>
+        <p><b>Total price:</b> $<%= price %></p>
+      <% end %>
+    </div>
   </div>
 </div>

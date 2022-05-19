@@ -9,6 +9,8 @@ class Ability
 
     can :manage, Recipe, user: user
     can :manage, Food, user: user
-    can :manage, RecipeFood, user:
+    can :manage, RecipeFood do |ingre|
+      Recipe.find(ingre.recipe_id).user_id == user.id
+    end
   end
 end

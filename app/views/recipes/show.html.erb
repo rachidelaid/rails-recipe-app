@@ -49,8 +49,10 @@
               <td><%= "#{ingredient.quantity} #{Food.find_by(id: ingredient.food_id).measurement_unit}"%></td>
               <td><%= Food.find_by(id: ingredient.food_id).price * ingredient.quantity%></td>
               <td>
-                <%= link_to "Modify", recipe_path({ingredient_id: ingredient.id, id: @recipe.id}), class: "btn btn-secondary" %>
-                <%= link_to "Delete", recipe_food_path({id: ingredient.id, recipe_id: @recipe.id}), data:{"turbo-method": :delete}, class: "btn btn-danger" %>
+                <% if can? :manage, ingredient %>
+                  <%= link_to "Modify", recipe_path({ingredient_id: ingredient.id, id: @recipe.id}), class: "btn btn-secondary" %>
+                  <%= link_to "Delete", recipe_food_path({id: ingredient.id, recipe_id: @recipe.id}), data:{"turbo-method": :delete}, class: "btn btn-danger" %>
+                <% end %> 
               </td>
             </tr>
           <% end %>

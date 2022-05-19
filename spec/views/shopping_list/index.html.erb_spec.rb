@@ -19,6 +19,4 @@ RSpec.describe 'shopping_list/index', type: :system do
   it 'should have the total value of food items needed' do
     expect(page).to have_content('Total value of food items needed')
   end
-
-  
 end

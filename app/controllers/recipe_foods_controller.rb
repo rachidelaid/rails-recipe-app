@@ -3,11 +3,11 @@ class RecipeFoodsController < ApplicationController
     ingredient = RecipeFood.new(
       quantity: params[:quantity]
     )
-    ingredient.food_id = params['food_id']
-    ingredient.recipe_id = params['format']
+    ingredient.food_id = params[:food_id]
+    ingredient.recipe_id = params[:recipe_id]
     ingredient.save
 
-    redirect_to recipe_path(params['format'])
+    redirect_to recipe_path(params[:recipe_id])
     flash[:notice] = 'ingredient added successfully'
   end
 

@@ -19,5 +19,4 @@ RSpec.describe 'foods/new', type: :system do
     click_link('Back to foods')
     expect(current_path).to eql(foods_path)
   end
-
 end

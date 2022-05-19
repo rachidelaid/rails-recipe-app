@@ -35,11 +35,11 @@ RSpec.describe 'recipes/edit', type: :system do
   end
 
   it 'Should change the name' do
-    within("#edit form") do
+    within('#edit form') do
       fill_in 'Name', with: 'name changed'
     end
     click_button 'Create'
     @recipe.reload
-    expect(@recipe.name).to eql("name changed")
+    expect(@recipe.name).to eql('name changed')
   end
 end

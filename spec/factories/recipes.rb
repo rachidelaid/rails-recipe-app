@@ -4,7 +4,7 @@ FactoryBot.define do
     preparation_time { '10 hours' }
     cooking_time { '1 hour' }
     decription { 'apple' }
-    public { false }
+    public { true }
     user
   end
 end

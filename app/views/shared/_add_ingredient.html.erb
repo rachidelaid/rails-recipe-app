@@ -3,7 +3,7 @@
     <div class="card-header">
       Add Ingredient
     </div>
-    <%= form_with url: recipe_foods_path(@recipe.id) do |form|%>
+    <%= form_with url: recipe_foods_path({recipe_id: @recipe.id}) do |form|%>
       <div class="card-body">
         <div class="d-flex flex-column mb-2">
           <%= form.label "Food", class:"form-label" %>

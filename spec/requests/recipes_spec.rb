@@ -17,7 +17,7 @@ RSpec.describe '/recipes', type: :request do
     end
 
     it 'renders the correct template' do
-      expect(response.body).to include('Public recipe page')
+      expect(response.body).to include('Public Recipe')
     end
   end
 

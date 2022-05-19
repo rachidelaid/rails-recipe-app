@@ -35,7 +35,7 @@ RSpec.describe 'recipes/edit', type: :system do
   end
 
   it 'Should change the name' do
-    within("form") do
+    within("#edit form") do
       fill_in 'Name', with: 'name changed'
     end
     click_button 'Create'

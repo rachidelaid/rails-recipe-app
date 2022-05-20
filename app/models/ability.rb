@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     can :read, Recipe, public: true
-    
+
     return unless user.present?
 
     can :manage, Recipe, user: user

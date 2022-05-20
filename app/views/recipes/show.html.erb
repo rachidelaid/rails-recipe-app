@@ -20,7 +20,19 @@
       </div>
       <div class="d-flex justify-content-between">
         <p>Preparation time: <%= @recipe.preparation_time %></p>
-        <p>public: <%= @recipe.public %></p>
+        <div class="form-check form-switch">
+        <% if can? :manage, @recipe%>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public,onchange: 'this.form.submit();',class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% else %>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public, disabled: true,class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% end %>
+        </div>
       </div>
       <p>cooking time: <%= @recipe.cooking_time %></p>
       <p><%= @recipe.decription %></p>

@@ -8,7 +8,7 @@
       <div class="card-body">
         <div class="d-flex flex-column mb-2">
           <%= form.label "Food", class:"form-label" %>
-          <%= form.collection_select :food_id, Food.where(user_id: @recipe.user_id).order(:name),:id,:name, include_blank: true, required: true, selected: ingre.food_id, class:"form-control"%>
+          <%= form.collection_select :food_id, [Food.find(ingre.food_id)],:id,:name, selected: ingre.food_id, class:"form-control"%>
         </div>
 
         <div class="d-flex flex-column">

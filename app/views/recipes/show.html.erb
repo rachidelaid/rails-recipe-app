@@ -20,7 +20,19 @@
       </div>
       <div class="d-flex justify-content-between">
         <p>Preparation time: <%= @recipe.preparation_time %></p>
-        <p>public: <%= @recipe.public %></p>
+        <div class="form-check form-switch">
+        <% if can? :manage, @recipe%>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public,onchange: 'this.form.submit();',class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% else %>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public, disabled: true,class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% end %>
+        </div>
       </div>
       <p>cooking time: <%= @recipe.cooking_time %></p>
       <p><%= @recipe.decription %></p>
@@ -31,9 +43,13 @@
 
 <div class="d-flex justify-content-between my-4">
   <%= link_to "Generate shopping list", "/general_shopping_list/#{@recipe.id}", class: "btn btn-info" %>
-  <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" onclick="(() => {
-    document.getElementById('popupAdd').classList.toggle('d-none')
-  })()">Add ingredient</button>
+  <% if can? :manage, @recipe%>
+    <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" onclick="(() => {
+      document.getElementById('popupAdd').classList.toggle('d-none')
+    })()">Add ingredient</button>
+  <% else %>
+    <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" disabled>Add ingredient</button>
+  <% end %>
 </div>
 
 <div class="card">

@@ -1,0 +1,27 @@
+<div class="d-flex w-100 h-100 fixed-top justify-content-center align-items-center popup" id="popupEdit">
+  <div class="card text-center w-50">
+    <% ingre = RecipeFood.find_by(id: params[:ingredient_id]) %>
+    <div class="card-header">
+      Modify Ingredient
+    </div>
+    <%= form_for(ingre, url: recipe_food_path({id: ingre.id, quantity: ingre.quantity, recipe_id: ingre.recipe_id}), html: { method: :put }) do |form|%>
+      <div class="card-body">
+        <div class="d-flex flex-column mb-2">
+          <%= form.label "Food", class:"form-label" %>
+          <%= form.collection_select :food_id, [Food.find(ingre.food_id)],:id,:name, selected: ingre.food_id, class:"form-control"%>
+        </div>
+
+        <div class="d-flex flex-column">
+          <%= form.label :quantity, class:"form-label" %>
+          <%= form.number_field :quantity, value: ingre.quantity, class:"form-control" %>
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <div class="d-flex justify-content-end">
+          <%= link_to "Cancel", recipe_path(@recipe.id), class: "btn btn-secondary" %>
+          <button class="btn btn-primary mx-2" type="submit">Add</button>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

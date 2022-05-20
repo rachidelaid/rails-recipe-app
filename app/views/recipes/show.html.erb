@@ -1,0 +1,87 @@
+<%= render partial: "shared/add_ingredient" %>
+
+<% if RecipeFood.find_by(id: params[:ingredient_id])%>
+  <%= render partial: "shared/edit_ingredient" %>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="card">
+  <div class="card-body d-flex">
+    <div class="title w-100">
+      <div class="d-flex justify-content-between">
+        <h4><%= @recipe.name %></h4>
+        <% if can? :manage, @recipe %>
+          <div class="d-flex">
+            <%= button_to "Delete Recipe", recipe_path(@recipe.id), method: :delete, class:"text-white btn btn-danger px-1 py-0 mx-1" %>
+            <%= button_to "Edit Recipe", edit_recipe_path(@recipe.id), method: :get,class:"text-white btn btn-secondary px-1 py-0" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-between">
+        <p>Preparation time: <%= @recipe.preparation_time %></p>
+        <div class="form-check form-switch">
+        <% if can? :manage, @recipe%>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public,onchange: 'this.form.submit();',class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% else %>
+          <%= form_with(model: @recipe) do |form| %>
+            <%= form.check_box :public, disabled: true,class:"form-check-input"%>
+            <label class="form-check-label" for="flexSwitchCheckDefault">public</label>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+      <p>cooking time: <%= @recipe.cooking_time %></p>
+      <p><%= @recipe.decription %></p>
+    </div>
+    <div class="details"></div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-between my-4">
+  <%= link_to "Generate shopping list", "/general_shopping_list/#{@recipe.id}", class: "btn btn-info" %>
+  <% if can? :manage, @recipe%>
+    <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" onclick="(() => {
+      document.getElementById('popupAdd').classList.toggle('d-none')
+    })()">Add ingredient</button>
+  <% else %>
+    <button class="btn btn-success" id="addIngredient" data-toggle="modal" data-target="#exampleModal" disabled>Add ingredient</button>
+  <% end %>
+</div>
+
+<div class="card">
+  <div class="card-body d-flex">
+    <% if RecipeFood.where(recipe_id: @recipe.id).empty?%>
+      <p class="text-center w-100 m-0">no ingredients</p>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% RecipeFood.where(recipe_id: @recipe.id).each do |ingredient| %>
+            <tr>
+              <td><%= Food.find_by(id: ingredient.food_id).name %></td>
+              <td><%= "#{ingredient.quantity} #{Food.find_by(id: ingredient.food_id).measurement_unit}"%></td>
+              <td><%= Food.find_by(id: ingredient.food_id).price * ingredient.quantity%></td>
+              <td>
+                <% if can? :manage, ingredient %>
+                  <%= link_to "Modify", recipe_path({ingredient_id: ingredient.id, id: @recipe.id}), class: "btn btn-secondary" %>
+                  <%= link_to "Delete", recipe_food_path({id: ingredient.id, recipe_id: @recipe.id}), data:{"turbo-method": :delete}, class: "btn btn-danger" %>
+                <% end %> 
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%end%>
+  </div>
+</div>

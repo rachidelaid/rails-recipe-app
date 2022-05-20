@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Recipes</h1>
+<div class="d-flex flex-row justify-content-end mb-2">
+  <%= link_to "New recipe", new_recipe_path, class:"btn btn-primary" %>
+</div>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+</div>
+

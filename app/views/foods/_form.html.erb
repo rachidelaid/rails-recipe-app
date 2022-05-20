@@ -1,0 +1,33 @@
+<%= form_with(model: food) do |form| %>
+  <% if food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+      <ul>
+        <% food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :name, class:"form-label" %>
+    <%= form.text_field :name , class:"form-control"%>
+  </div>
+
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :measurement_unit, class:"form-label" %>
+    <%= form.text_field :measurement_unit , class:"form-control"%>
+  </div>
+
+  <div class="d-flex flex-column mb-2" >
+    <%= form.label :price, class:"form-label" %>
+    <%= form.text_field :price, class:"form-control"%>
+  </div>
+
+
+  <div class="actions mb-3">
+    <%= form.submit "Create Food", class:"btn btn-primary" %>
+  </div>
+<% end %>
